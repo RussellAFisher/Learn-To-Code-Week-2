@@ -5,16 +5,71 @@
     <meta charset="UTF-8">
     <title>Rock, Paper, Scissors</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script>
-      // Task 1: user's choice
-      // Task 2: machine's choice
-      // Task 3: compare choices
-      // Task 4: refactor code
-      // Task 5: add all code here 
-    </script>
+
+
   </head>
 
   <body>
+    <h1>Choose One or DIE</h1>
+    <button id="rock" type="button" name="button">Rock</button>
+    <button id="paper" type="button" name="button">Paper</button>
+    <button id="scissors" type="button" name="button">Scissors</button>
+    <script>
+    function computerChoice() {
+    var choice = Math.random ();
+    console.log(choice);
+    if (choice <= .33){
+      return "rock"
+    }
+    else if (choice <=.66){
+      return "paper"
+    }
+    else if (choice > .66) {
+      return "scissors"
+    }
+  }
+      var userChoice;
+      document.getElementById("rock").addEventListener('click', function() {
+        userChoice = "rock"
+        alert(compareTheTwo(userChoice, pCChoice));
+      })
+      document.getElementById("scissors").addEventListener('click', function() {
+        userChoice = "scissors"
+        alert(compareTheTwo(userChoice, pCChoice));
+      })
+      document.getElementById("paper").addEventListener('click', function() {
+        userChoice = "paper"
+        alert(compareTheTwo(userChoice, pCChoice));
+      })
+    computerChoice();// Task 2: machine's choice
+    var pCChoice = computerChoice();
+    function compareTheTwo(userChoice, pCChoice) {
+      if (userChoice === computerChoice) {
+        return "Tie"
+      }
+      else if (userChoice==="rock" && pCChoice==="scissors"){
+        return "User wins all the base"
+      }
+      else if (userChoice==="rock" && pCChoice==="paper") {
+        return "User sucks BEEP BOOP"
+      }
+      else if (userChoice==="scissors" && pCChoice==="paper") {
+        return "DESTROY THE COMPUTERS"
+      }
+      else if (userChoice==="paper" && pCChoice==="scissors") {
+        return "User sucks BEEP BOOP"
+      }
+      else if (userChoice==="scissors" && pCChoice==="rock"){
+        return "User sucks BEEP BOOP"
+      }
+      else if (userChoice==="paper" && pCChoice==="rock"){
+        return "Smother that cpu fan"
+      }
+      else {
+        return userChoice + "...real mature"
+      }
+    }
+    </script>
   </body>
 
 </html>
